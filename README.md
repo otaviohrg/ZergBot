@@ -27,3 +27,14 @@ STARTcraft comes with a StarterBot written in C++ using BWAPI 4.4.0. This repo c
 On separe le code en cinq modules : Base, Economy, Combat strategy, Micro tactics, Scouting.
 Chaque module accomplit ses taches et transmet ses besoins dans une liste. Chaque besoin est associe a une valeur de priorite.
 Ainsi, les modules economy et combat peuvent decider quels batiments et unites construire.
+
+## Work distribution
+
+### Scouting: Nathan
+
+### Economie: Shu + Yingwei
+
+### Combat + Base: Otavio + Boutheina
+
+### Micro: apres 
+
