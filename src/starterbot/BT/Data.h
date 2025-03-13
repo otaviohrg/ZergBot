@@ -12,6 +12,9 @@ class Data {
 public:
 	int currMinerals;
 	int thresholdMinerals;
+	int reservedMinerals;
+	int currGas;
+	int reservedGas;
 	int currSupply;
 	int thresholdSupply;
 

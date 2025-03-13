@@ -23,7 +23,7 @@ EconomyModule::~EconomyModule() {
 }
 
 void EconomyModule::updateEconomy(Blackboard* bb) {
-    bb->pData->currMinerals = BWAPI::Broodwar->self()->minerals();
+    bb->updateResources();
 
     if (pEconomyBT != nullptr && pEconomyBT->Evaluate(bb->pData) != BT_NODE::RUNNING)
     {

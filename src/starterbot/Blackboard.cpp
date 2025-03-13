@@ -11,3 +11,22 @@ Blackboard::Blackboard()
     pData->nWantedWorkersTotal = NWANTED_WORKERS_TOTAL;
     pData->nWantedWorkersFarmingMinerals = NWANTED_WORKERS_FARMING_MINERALS;
 }
+
+void Blackboard::reserveResources(int minerals, int gas)
+{
+    pData->reservedMinerals += minerals;
+    pData->reservedGas += gas;
+}
+
+void Blackboard::unreserveResources(int minerals, int gas)
+{
+    pData->reservedMinerals -= minerals;
+    pData->reservedGas -= gas;
+}
+
+void Blackboard::updateResources()
+{
+    pData->currMinerals = BWAPI::Broodwar->self()->minerals();
+    pData->currGas = BWAPI::Broodwar->self()->gas();
+}
+

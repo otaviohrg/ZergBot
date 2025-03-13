@@ -19,6 +19,7 @@ std::string BT_ACTION_BUILD_SUPPLY_PROVIDER::GetDescription()
 BT_NODE::State BT_ACTION_BUILD_SUPPLY_PROVIDER::BuildSupplyProvider(void* data)
 {
     Data* pData = (Data*)data;
+    std::cout << "Building Supply Provider" << std::endl;
 
     // let's build a supply provider
     const BWAPI::UnitType supplyProviderType = BWAPI::Broodwar->self()->getRace().getSupplyProvider();

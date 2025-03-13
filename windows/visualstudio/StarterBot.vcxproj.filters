@@ -97,6 +97,15 @@
     <ClCompile Include="..\..\src\starterbot\Modules\BaseModule.cpp" />
     <ClCompile Include="..\..\src\starterbot\Modules\CombatModule.cpp" />
     <ClCompile Include="..\..\src\starterbot\Modules\EconomyModule.cpp" />
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_BUILD_BUILDING.cpp">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_WAIT_FOR_CONSTRUCTION.cpp">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_WAIT_FOR_RESOURCES.cpp">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\starterbot\Grid.hpp" />
@@ -201,6 +210,15 @@
     <ClInclude Include="..\..\src\starterbot\Modules\BaseModule.h" />
     <ClInclude Include="..\..\src\starterbot\Modules\CombatModule.h" />
     <ClInclude Include="..\..\src\starterbot\Modules\EconomyModule.h" />
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_BUILD_BUILDING.h">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_WAIT_FOR_CONSTRUCTION.h">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_WAIT_FOR_RESOURCES.h">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="BT">
