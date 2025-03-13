@@ -17,7 +17,7 @@ public:
 	int reservedGas;
 	int currSupply;
 	int thresholdSupply;
-
+	int currentWorkers;
 	int nWantedWorkersTotal;
 	int nWantedWorkersFarmingMinerals;
 

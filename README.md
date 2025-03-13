@@ -19,3 +19,24 @@ STARTcraft comes with a StarterBot written in C++ using BWAPI 4.4.0. This repo c
 2. Download and unzip [Starcraft Broodwar 1.16.1](http://www.cs.mun.ca/~dchurchill/startcraft/scbw_bwapi440.zip) to the included `windows/starcraft` folder
 3. Run `windows/RunC++BotAndStarcraft.bat` which will launch the bot executable and Starcraft / BWAPI
 4. Open `windows/visualstudio/StartCraft.sln` in Visual Studio 2022 to modify / recompile the code
+
+# Project
+
+## General 
+
+On separe le code en cinq modules : Base, Economy, Combat strategy, Micro tactics, Scouting.
+Chaque module accomplit ses taches et transmet ses besoins dans une liste. Chaque besoin est associe a une valeur de priorite.
+Ainsi, les modules economy et combat peuvent decider quels batiments et unites construire.
+
+## Work distribution
+
+### Scouting: Nathan
+
+### Economie: Shu + Yingwei
+
+Framework for Standard and Emergency modules
+
+### Combat + Base: Otavio + Boutheina
+
+### Micro: apres 
+
