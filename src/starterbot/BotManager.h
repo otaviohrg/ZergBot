@@ -5,7 +5,7 @@
 #include <BWAPI.h>
 #include "BT/Data.h"
 #include "Modules/BaseModule.h"
-#include "Modules/EconomyModule.h"
+#include "Modules/Economy/EconomyModule.h"
 #include "Blackboard.h"
 
 
