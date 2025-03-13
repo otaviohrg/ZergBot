@@ -34,6 +34,8 @@ Ainsi, les modules economy et combat peuvent decider quels batiments et unites c
 
 ### Economie: Shu + Yingwei
 
+Framework for Standard and Emergency modules
+
 ### Combat + Base: Otavio + Boutheina
 
 ### Micro: apres 

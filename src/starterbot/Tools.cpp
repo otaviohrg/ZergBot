@@ -285,3 +285,18 @@ void Tools::DrawHealthBar(BWAPI::Unit unit, double ratio, BWAPI::Color color, in
         BWAPI::Broodwar->drawLineMap(BWAPI::Position(i, hpTop), BWAPI::Position(i, hpBottom), BWAPI::Colors::Black);
     }
 }
+
+
+BWAPI::Unit GetBuilderUnit() {
+    // Loop through all units of the player
+    for (auto& unit : BWAPI::Broodwar->self()->getUnits()) {
+        // Check if the unit is a worker (SCV for Terran, Probe for Protoss, Drone for Zerg)
+        if (unit->getType().isWorker()) {
+            // Check if the worker is not currently performing a task (not constructing or gathering)
+            if (!unit->isConstructing() && !unit->isGatheringGas() && !unit->isGatheringMinerals()&& !unit->isRepairing() && !unit->isTraining()) {
+                return unit; // Return the first available worker unit
+            }
+        }
+    }
+    return nullptr;  // Return null if no worker is available
+}

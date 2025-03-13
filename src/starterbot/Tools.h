@@ -14,7 +14,7 @@ namespace Tools
     BWAPI::Unit GetDepot();
 
     bool BuildBuilding(BWAPI::UnitType type);
-    
+    BWAPI::Unit GetBuilderUnit();
 
     void DrawUnitBoundingBoxes();
     void DrawUnitCommands();
