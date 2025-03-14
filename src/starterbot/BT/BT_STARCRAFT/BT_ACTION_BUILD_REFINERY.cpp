@@ -17,7 +17,7 @@ BT_NODE::State BT_ACTION_BUILD_REFINERY::BuildRefinery(void* data) {
     Data* pData = (Data*)data;
 
     // Add your refinery building logic here
-    const BWAPI::UnitType refineryType = BWAPI::UnitTypes::Terran_Refinery;
+    const BWAPI::UnitType refineryType = BWAPI::UnitTypes::Zerg_Extractor;
     BWAPI::Unit myDepot = Tools::GetDepot();
 
     if (myDepot) {

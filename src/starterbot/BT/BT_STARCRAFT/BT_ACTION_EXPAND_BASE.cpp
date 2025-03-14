@@ -17,7 +17,7 @@ BT_NODE::State BT_ACTION_EXPAND_BASE::ExpandBase(void* data) {
     Data* pData = (Data*)data;
 
     // Add your base expansion logic here
-    const BWAPI::UnitType baseType = BWAPI::UnitTypes::Terran_Command_Center;
+    const BWAPI::UnitType baseType = BWAPI::UnitTypes::Zerg_Hatchery;
     BWAPI::TilePosition buildLocation = BWAPI::Broodwar->self()->getStartLocation();
 
     // Check if a base can be built at the specified location
