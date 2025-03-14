@@ -1,4 +1,5 @@
 #include "ScoutingModule.h"
+#include <deque>
 
 ScoutingModule::ScoutingModule() : enemyBaseFound(false), enemyBase(BWAPI::TilePositions::None) {
     // Initialize scouting positions (potential enemy spawn locations)
@@ -15,9 +16,10 @@ void ScoutingModule::assignInitialOverlord() {
     for (auto& unit : BWAPI::Broodwar->self()->getUnits()) {
         if (unit->getType() == BWAPI::UnitTypes::Zerg_Overlord && overlordScouts.find(unit) == overlordScouts.end()) {
             if (!scoutingPositions.empty()) {
-                unit->move(BWAPI::Position(scoutingPositions.front()));
+                auto target = scoutingPositions.front();
+                unit->move(BWAPI::Position(target));
                 overlordScouts.insert(unit);
-                scoutingPositions.erase(scoutingPositions.begin());
+                scoutingPositions.pop_front();
                 return;
             }
         }
@@ -25,13 +27,19 @@ void ScoutingModule::assignInitialOverlord() {
 }
 
 void ScoutingModule::updateOverlordScouting() {
+    std::unordered_set<BWAPI::Unit> toRemove;
     for (auto& overlord : overlordScouts) {
-        if (overlord->exists() && overlord->isIdle()) {
-            if (!scoutingPositions.empty()) {
-                overlord->move(BWAPI::Position(scoutingPositions.front()));
-                scoutingPositions.erase(scoutingPositions.begin());
-            }
+        if (!overlord->exists()) {
+            toRemove.insert(overlord);
+            continue;
         }
+        if (overlord->isIdle() && !scoutingPositions.empty()) {
+            overlord->move(BWAPI::Position(scoutingPositions.front()));
+            scoutingPositions.pop_front();
+        }
+    }
+    for (auto& unit : toRemove) {
+        overlordScouts.erase(unit);
     }
 }
 
@@ -39,9 +47,10 @@ void ScoutingModule::sendZerglingScouts() {
     for (auto& unit : BWAPI::Broodwar->self()->getUnits()) {
         if (unit->getType() == BWAPI::UnitTypes::Zerg_Zergling && zerglingScouts.find(unit) == zerglingScouts.end()) {
             if (!scoutingPositions.empty()) {
-                unit->move(BWAPI::Position(scoutingPositions.front()));
+                auto target = scoutingPositions.front();
+                unit->move(BWAPI::Position(target));
                 zerglingScouts.insert(unit);
-                scoutingPositions.erase(scoutingPositions.begin());
+                scoutingPositions.pop_front();
                 return;
             }
         }
@@ -53,8 +62,9 @@ void ScoutingModule::exploreUnscoutedLocations() {
         for (auto& unit : BWAPI::Broodwar->self()->getUnits()) {
             if (unit->getType().isWorker() || unit->getType() == BWAPI::UnitTypes::Zerg_Zergling) {
                 if (!scoutingPositions.empty()) {
-                    unit->move(BWAPI::Position(scoutingPositions.front()));
-                    scoutingPositions.erase(scoutingPositions.begin());
+                    auto target = scoutingPositions.front();
+                    unit->move(BWAPI::Position(target));
+                    scoutingPositions.pop_front();
                 }
             }
         }
@@ -72,6 +82,9 @@ void ScoutingModule::update(Blackboard* bb) {
                 enemyBase = unit->getTilePosition();
                 enemyBaseFound = true;
                 BWAPI::Broodwar->printf("Enemy base found at (%d, %d)", enemyBase.x, enemyBase.y);
+                
+                // Store enemy base in blackboard
+                bb->setEnemyBase(enemyBase);
                 return;
             }
         }

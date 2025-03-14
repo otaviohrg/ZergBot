@@ -34,3 +34,11 @@ void Blackboard::updateResources()
     pData->currGas = BWAPI::Broodwar->self()->gas();
 }
 
+
+void Blackboard::setEnemyBase(const BWAPI::TilePosition& position) {
+    enemyBase = position;
+}
+
+BWAPI::TilePosition Blackboard::getEnemyBase() const {
+    return enemyBase;
+}

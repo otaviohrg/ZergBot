@@ -1,25 +1,25 @@
 #pragma once
 #include <BWAPI.h>
 #include <unordered_set>
-#include "../Blackboard.h"
-#include "../Tools.h"
+#include <deque>
+#include "Blackboard.h"
 
 class ScoutingModule {
-private:
-    std::unordered_set<BWAPI::Unit> overlordScouts;
-    std::unordered_set<BWAPI::Unit> zerglingScouts;
-    std::vector<BWAPI::TilePosition> scoutingPositions;
-    BWAPI::TilePosition enemyBase;
-    bool enemyBaseFound;
+public:
+    ScoutingModule();
+    ~ScoutingModule();
 
     void assignInitialOverlord();
     void updateOverlordScouting();
     void sendZerglingScouts();
     void exploreUnscoutedLocations();
+    void update(Blackboard* bb);
     bool isEnemyBaseFound() const;
 
-public:
-    ScoutingModule();
-    ~ScoutingModule();
-    void update(Blackboard* bb);
+private:
+    bool enemyBaseFound;
+    BWAPI::TilePosition enemyBase;
+    std::deque<BWAPI::TilePosition> scoutingPositions;
+    std::unordered_set<BWAPI::Unit> overlordScouts;
+    std::unordered_set<BWAPI::Unit> zerglingScouts;
 };
