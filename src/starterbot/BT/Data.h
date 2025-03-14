@@ -24,4 +24,6 @@ public:
 	int nWantedWorkersFarmingGas;
 	std::unordered_set<BWAPI::Unit> unitsFarmingMinerals;
 	std::unordered_set<BWAPI::Unit> unitsFarmingGas;
+	std::unordered_set<BWAPI::Unit> unitsScouting;
+
 };

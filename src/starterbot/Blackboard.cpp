@@ -13,6 +13,7 @@ Blackboard::Blackboard()
     pData->nWantedWorkersFarmingGas = NWANTED_WORKERS_FARMING_GAS;
     pData->unitsFarmingMinerals = std::unordered_set<BWAPI::Unit>();
     pData->unitsFarmingGas = std::unordered_set<BWAPI::Unit>();
+    pData->unitsScouting = std::unordered_set<BWAPI::Unit>();   
 }
 
 void Blackboard::reserveResources(int minerals, int gas)
