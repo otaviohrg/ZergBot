@@ -36,6 +36,13 @@ StandardEconomyModule::StandardEconomyModule()
     BT_ACTION_BUILD_REFINERY* pBuildRefinery = 
         new BT_ACTION_BUILD_REFINERY("BuildRefinery", pNeedGasCondition);
 
+    BT_DECO_REPEATER* pGasFarmingRepeater = new BT_DECO_REPEATER(
+        "RepeatGasFarming", pMainSeq, 0, true, false, false);
+    BT_DECO_CONDITION_NOT_ENOUGH_WORKERS_FARMING_GAS* pNotEnoughGasWorkers =
+        new BT_DECO_CONDITION_NOT_ENOUGH_WORKERS_FARMING_GAS("CheckGasWorkers", pGasFarmingRepeater);
+    BT_ACTION_SEND_IDLE_WORKER_TO_GAS* pSendGasWorker =
+        new BT_ACTION_SEND_IDLE_WORKER_TO_GAS("SendGasWorker", pNotEnoughGasWorkers);
+
     // === 5. Supply Depot Management (Prevent Supply Block) ===
     BT_DECO_CONDITION_SUPPLY_NEEDED* pSupplyCheck = 
         new BT_DECO_CONDITION_SUPPLY_NEEDED("CheckSupply", pMainSeq);

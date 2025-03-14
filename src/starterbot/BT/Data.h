@@ -7,7 +7,7 @@
 
 #define NWANTED_WORKERS_TOTAL 20
 #define NWANTED_WORKERS_FARMING_MINERALS 10
-
+#define NWANTED_WORKERS_FARMING_GAS 3
 class Data {
 public:
 	int currMinerals;
@@ -17,6 +17,8 @@ public:
 	int currentWorkers;
 	int nWantedWorkersTotal;
 	int nWantedWorkersFarmingMinerals;
+	int nWantedWorkersFarmingGas;
 
 	std::unordered_set<BWAPI::Unit> unitsFarmingMinerals;
+	std::unordered_set<BWAPI::Unit> unitsFarmingGas;
 };

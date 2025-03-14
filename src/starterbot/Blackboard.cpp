@@ -10,4 +10,6 @@ Blackboard::Blackboard()
     pData->currentWorkers = 0;
     pData->nWantedWorkersTotal = NWANTED_WORKERS_TOTAL;
     pData->nWantedWorkersFarmingMinerals = NWANTED_WORKERS_FARMING_MINERALS;
+    pData->nWantedWorkersFarmingGas = NWANTED_WORKERS_FARMING_GAS;  // ✅ Initialize this
 }
+
