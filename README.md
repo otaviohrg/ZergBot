@@ -24,19 +24,30 @@ STARTcraft comes with a StarterBot written in C++ using BWAPI 4.4.0. This repo c
 
 ## General 
 
-On separe le code en cinq modules : Base, Economy, Combat strategy, Micro tactics, Scouting.
-Chaque module accomplit ses taches et transmet ses besoins dans une liste. Chaque besoin est associe a une valeur de priorite.
-Ainsi, les modules economy et combat peuvent decider quels batiments et unites construire.
+We split the code into five main modules : Base, Economy, Combat strategy, Micro tactics, Scouting.
+Each module validates its tasks and lists its needs. Each need is stored in a global list with a priority indicator.
 
-## Work distribution
+### Scouting
 
-### Scouting: Nathan
+For now, our scouting method consists of sending our first overlord to the opposite corner of the map.
+There are 3 possible positions for the enemy base, we chose to check the furthest one first.
+To do : Train 2 zerglings outside of squads to go scout and check the map for the other spawn point if necessary, of for hidden buildings and secondary bases in any case.
 
-### Economie: Shu + Yingwei
+### Economy
 
-Framework for Standard and Emergency modules
+Our current economy is pretty basic : we do not concentrate on gas yet and focus on maximizing the number of workers on the nearby crystals.
 
-### Combat + Base: Otavio + Boutheina
+### Combat
 
-### Micro: apres 
+### Base
 
+### Micro 
+
+### To do :
+
+- Fix the logic of mining.
+- Scouting : take two Zerglings to scout for secondary bases.
+- 4-pool strategy / base construction. (All races to start with)
+- Split the strategies depending on the enemy's race.
+   - 3 build orders.
+   - 3 base growths.
