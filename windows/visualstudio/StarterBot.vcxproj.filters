@@ -5,7 +5,6 @@
     <ClCompile Include="..\..\src\starterbot\MapTools.cpp" />
     <ClCompile Include="..\..\src\starterbot\ReplayParser.cpp" />
     <ClCompile Include="..\..\src\starterbot\BotManager.cpp" />
-    <ClCompile Include="..\..\src\starterbot\Tools.cpp" />
     <ClCompile Include="..\..\src\starterbot\BT\BT_LEAF.cpp">
       <Filter>BT</Filter>
     </ClCompile>
@@ -106,13 +105,35 @@
     <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_WAIT_FOR_RESOURCES.cpp">
       <Filter>BT\BT_STARCRAFT</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_TRAIN_ZERGLING.cpp">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_BUILD_REFINERY.cpp">
+      <Filter>BT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_BUILD_SUPPLY_DEPOT.cpp">
+      <Filter>BT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_EXPAND_BASE.cpp">
+      <Filter>BT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_NEED_GAS .cpp">
+      <Filter>BT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_SUPPLY_NEEDED.cpp">
+      <Filter>BT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_SUPPLY_REACHED .cpp">
+      <Filter>BT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\starterbot\Tools.cpp" />
+    <ClCompile Include="..\..\src\starterbot\Modules\Micro\MicroModule.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\starterbot\Grid.hpp" />
     <ClInclude Include="..\..\src\starterbot\MapTools.h" />
     <ClInclude Include="..\..\src\starterbot\ReplayParser.h" />
     <ClInclude Include="..\..\src\starterbot\BotManager.h" />
-    <ClInclude Include="..\..\src\starterbot\Tools.h" />
     <ClInclude Include="..\..\src\starterbot\BT\BT_LEAF.h">
       <Filter>BT</Filter>
     </ClInclude>
@@ -219,6 +240,30 @@
     <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_WAIT_FOR_RESOURCES.h">
       <Filter>BT\BT_STARCRAFT</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_TRAIN_ZERGLING.h">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_BUILD_REFINERY.h">
+      <Filter>BT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_BUILD_SUPPLY_DEPOT.h">
+      <Filter>BT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_EXPAND_BASE.h">
+      <Filter>BT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_NEED_GAS.h">
+      <Filter>BT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_SUPPLY_NEEDED.h">
+      <Filter>BT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_SUPPLY_REACHED.h">
+      <Filter>BT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\Tools.h" />
+    <ClInclude Include="..\..\src\starterbot\Modules\Micro\MicroModule.h" />
+    <ClInclude Include="..\..\src\starterbot\Modules\Micro\Squad.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="BT">

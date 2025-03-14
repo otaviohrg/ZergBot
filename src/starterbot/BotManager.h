@@ -6,6 +6,8 @@
 #include "BT/Data.h"
 #include "Modules/BaseModule.h"
 #include "Modules/Economy/EconomyModule.h"
+#include "Modules/CombatModule.h"
+#include "Modules/Micro/MicroModule.h"
 #include "Blackboard.h"
 
 
@@ -16,6 +18,8 @@ private:
 	Blackboard* bb;
 	BaseModule* pBaseModule;
 	EconomyModule* pEconomyModule;
+	CombatModule* pCombatModule;
+	MicroModule* pMicroModule;
 
 public:
 

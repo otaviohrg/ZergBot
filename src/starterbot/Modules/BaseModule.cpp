@@ -16,6 +16,12 @@ BaseModule::BaseModule(){
     //Build Overlord
     BT_DECO_UNTIL_SUCCESS* pUntilBuildOverlord = new BT_DECO_UNTIL_SUCCESS("Until9Workers", pSequence);
     BT_ACTION_BUILD_SUPPLY_PROVIDER* pBuildOverlord = new BT_ACTION_BUILD_SUPPLY_PROVIDER("BuildOverlord", pUntilBuildOverlord);
+
+    //Build Overlord if not enough supply
+    BT_DECO_REPEATER* pRepeatOverlord = new BT_DECO_REPEATER("RepeatOverlordProducing", pSequence, 0, true, false, false);
+    BT_DECO_CONDITION_NOT_ENOUGH_SUPPLY* pNotEnoughSupply2 = new BT_DECO_CONDITION_NOT_ENOUGH_SUPPLY("NotEnoughSupply", pRepeatOverlord);
+    BT_ACTION_BUILD_SUPPLY_PROVIDER* pBuildOverlord2 = new BT_ACTION_BUILD_SUPPLY_PROVIDER("BuildOverlord", pNotEnoughSupply2);
+
 }
 
 BaseModule::~BaseModule(){

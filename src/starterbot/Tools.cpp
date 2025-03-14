@@ -42,7 +42,7 @@ BWAPI::TilePosition Tools::findOptimizedPositionNexus(BWAPI::TilePosition closes
             for (const auto& mineralPos : filteredMineralPositions) {
                 totalDistance += candidatePosition.getDistance(BWAPI::TilePosition(mineralPos));
             }
-            
+
             if (totalDistance < bestDistance) {
                 bestPosition = candidatePosition;
                 bestDistance = totalDistance;
@@ -129,7 +129,7 @@ void Tools::DrawUnitCommands()
 {
     for (auto& unit : BWAPI::Broodwar->self()->getUnits())
     {
-        const BWAPI::UnitCommand & command = unit->getLastCommand();
+        const BWAPI::UnitCommand& command = unit->getLastCommand();
 
         // If the previous command had a ground position target, draw it in red
         // Example: move to location on the map
@@ -175,7 +175,7 @@ void Tools::SmartRightClick(BWAPI::Unit unit, BWAPI::Unit target)
     // If we are issuing the same type of command with the same arguments, we can ignore it
     // Issuing multiple identical commands on successive frames can lead to bugs
     if (unit->getLastCommand().getTarget() == target) { return; }
-    
+
     // If there's nothing left to stop us, right click!
     unit->rightClick(target);
 }
@@ -249,7 +249,7 @@ void Tools::DrawUnitHealthBars()
             if (hpRatio < 0.66) hpColor = BWAPI::Colors::Orange;
             if (hpRatio < 0.33) hpColor = BWAPI::Colors::Red;
             DrawHealthBar(unit, hpRatio, hpColor, 0);
-            
+
             // if it has shields, draw those too
             if (unit->getType().maxShields() > 0)
             {
@@ -258,6 +258,18 @@ void Tools::DrawUnitHealthBars()
             }
         }
     }
+}
+
+BWAPI::Unit Tools::GetAvailableLarva()
+{
+    for (auto& unit : BWAPI::Broodwar->self()->getUnits()) {
+        if (unit->getType().isResourceDepot()) {  // Hatchery, Lair, or Hive
+            for (auto& larva : unit->getLarva()) {  // Get the Larvae list
+                return larva;  // Return the first available Larva
+            }
+        }
+    }
+    return nullptr;  // No available Larva found
 }
 
 void Tools::DrawHealthBar(BWAPI::Unit unit, double ratio, BWAPI::Color color, int yOffset)
@@ -287,13 +299,13 @@ void Tools::DrawHealthBar(BWAPI::Unit unit, double ratio, BWAPI::Color color, in
 }
 
 
-BWAPI::Unit GetBuilderUnit() {
+BWAPI::Unit Tools::GetBuilderUnit() {
     // Loop through all units of the player
     for (auto& unit : BWAPI::Broodwar->self()->getUnits()) {
         // Check if the unit is a worker (SCV for Terran, Probe for Protoss, Drone for Zerg)
         if (unit->getType().isWorker()) {
             // Check if the worker is not currently performing a task (not constructing or gathering)
-            if (!unit->isConstructing() && !unit->isGatheringGas() && !unit->isGatheringMinerals()&& !unit->isRepairing() && !unit->isTraining()) {
+            if (!unit->isConstructing() && !unit->isGatheringGas() && !unit->isGatheringMinerals() && !unit->isRepairing() && !unit->isTraining()) {
                 return unit; // Return the first available worker unit
             }
         }

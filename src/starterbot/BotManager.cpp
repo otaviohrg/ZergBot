@@ -11,6 +11,8 @@ BotManager::BotManager()
     bb = new Blackboard();
 	pBaseModule = new BaseModule();
 	pEconomyModule = new EconomyModule();
+    pCombatModule = new CombatModule();
+    pMicroModule = new MicroModule();
 }
 
 // Called when the bot starts!
@@ -36,6 +38,8 @@ void BotManager::onFrame()
 
 	pEconomyModule->updateEconomy(bb);
 	pBaseModule->updateBase(bb);
+    pCombatModule->updateCombat(bb);
+    pMicroModule->updateMicro();
 
     // Draw unit health bars, which brood war unfortunately does not do
     Tools::DrawUnitHealthBars();
