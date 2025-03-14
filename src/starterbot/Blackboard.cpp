@@ -10,6 +10,10 @@ Blackboard::Blackboard()
     pData->currentWorkers = 0;
     pData->nWantedWorkersTotal = NWANTED_WORKERS_TOTAL;
     pData->nWantedWorkersFarmingMinerals = NWANTED_WORKERS_FARMING_MINERALS;
+    pData->nWantedWorkersFarmingGas = NWANTED_WORKERS_FARMING_GAS;
+    pData->unitsFarmingMinerals = std::unordered_set<BWAPI::Unit>();
+    pData->unitsFarmingGas = std::unordered_set<BWAPI::Unit>();
+    pData->unitsScouting = std::unordered_set<BWAPI::Unit>();   
 }
 
 void Blackboard::reserveResources(int minerals, int gas)
@@ -30,3 +34,11 @@ void Blackboard::updateResources()
     pData->currGas = BWAPI::Broodwar->self()->gas();
 }
 
+
+void Blackboard::setEnemyBase(const BWAPI::TilePosition& position) {
+    enemyBase = position;
+}
+
+BWAPI::TilePosition Blackboard::getEnemyBase() const {
+    return enemyBase;
+}

@@ -17,7 +17,7 @@ BT_NODE::State BT_ACTION_BUILD_SUPPLY_DEPOT::BuildSupplyDepot(void* data) {
     Data* pData = (Data*)data;
 
     // Build supply depot logic
-    const BWAPI::UnitType supplyDepotType = BWAPI::UnitTypes::Terran_Supply_Depot;
+    const BWAPI::UnitType supplyDepotType = BWAPI::UnitTypes::Zerg_Overlord;
     BWAPI::TilePosition buildLocation = BWAPI::Broodwar->self()->getStartLocation();
 
     if (BWAPI::Broodwar->canBuildHere(buildLocation, supplyDepotType)) {
