@@ -1,6 +1,8 @@
 #include "MicroModule.h"
+#include <algorithm>
+#include <vector>
 
-#define SQUAD_SIZE 12
+#define SQUAD_SIZE 8
 
 MicroModule::MicroModule() {}
 
@@ -17,9 +19,6 @@ std::vector<BWAPI::Position> GetMineralPositions() {
 
     return mineralPositions;
 }
-
-#include <algorithm>
-#include <vector>
 
 struct MineralCluster {
     BWAPI::Position position;
@@ -61,10 +60,12 @@ std::list<BWAPI::Position> GetTopThreePossibleEnemyBasePositions() {
 
     return topThreePositions;
 }
-std::list<BWAPI::Position> possibleStartLocations = GetTopThreePossibleEnemyBasePositions();
+
 
 BWAPI::Position GetEnemyBasePosition() {
     // If we already found the enemy base, return it
+
+    std::list<BWAPI::Position> possibleStartLocations = GetTopThreePossibleEnemyBasePositions();
     if (enemyBasePosition.isValid()) {
         return enemyBasePosition;
     }
