@@ -7,8 +7,9 @@
 class Squad {
 public:
     std::list<BWAPI::Unit> units;  // List of Zerglings in the squad
+    int squadId;
 
-    Squad() {}
+    Squad(int squadId) : squadId(squadId) {};
 
     bool isEmpty() const {
         return units.empty();

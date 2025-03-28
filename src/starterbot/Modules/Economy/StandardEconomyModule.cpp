@@ -35,12 +35,6 @@ StandardEconomyModule::StandardEconomyModule()
         new BT_DECO_CONDITION_NEED_GAS("CheckGasNeeded", pMainSeq);
     BT_ACTION_BUILD_REFINERY* pBuildRefinery = 
         new BT_ACTION_BUILD_REFINERY("BuildRefinery", pNeedGasCondition);
-
-    // === 5. Supply Depot Management (Prevent Supply Block) ===
-    BT_DECO_CONDITION_SUPPLY_NEEDED* pSupplyCheck = 
-        new BT_DECO_CONDITION_SUPPLY_NEEDED("CheckSupply", pMainSeq);
-    BT_ACTION_BUILD_SUPPLY_DEPOT* pBuildSupplyDepot = 
-        new BT_ACTION_BUILD_SUPPLY_DEPOT("BuildSupplyDepot", pSupplyCheck);
 }
 
 StandardEconomyModule::~StandardEconomyModule() {

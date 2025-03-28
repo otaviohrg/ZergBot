@@ -312,3 +312,18 @@ BWAPI::Unit Tools::GetBuilderUnit() {
     }
     return nullptr;  // Return null if no worker is available
 }
+
+bool Tools::IsEnemyZerg(void *data) {
+    Data* pData = (Data*)data;
+    return pData->enemyRace == BWAPI::Races::Zerg;
+}
+
+bool Tools::IsEnemyTerran(void *data) {
+    Data* pData = (Data*)data;
+    return pData->enemyRace == BWAPI::Races::Terran;
+}
+
+bool Tools::IsEnemyProtoss(void *data) {
+    Data* pData = (Data*)data;
+    return pData->enemyRace == BWAPI::Races::Protoss;
+}

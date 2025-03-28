@@ -15,12 +15,8 @@ public:
     void reserveResources(int minerals, int gas);
     void unreserveResources(int minerals, int gas);
     void updateResources();
-    void setEnemyBase(const BWAPI::TilePosition& position) {
-        enemyBase = position;
-    }
+    void setEnemyBase(const BWAPI::TilePosition& position);
 
-    BWAPI::TilePosition getEnemyBase() const {
-        return enemyBase;
-    }
+    BWAPI::TilePosition getEnemyBase();
 
 };

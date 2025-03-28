@@ -8,6 +8,7 @@
 #include "Modules/Economy/EconomyModule.h"
 #include "Modules/CombatModule.h"
 #include "Modules/Micro/MicroModule.h"
+#include "Modules/ScoutingModule.h"
 #include "Blackboard.h"
 
 
@@ -20,6 +21,7 @@ private:
 	EconomyModule* pEconomyModule;
 	CombatModule* pCombatModule;
 	MicroModule* pMicroModule;
+	ScoutingModule* pScoutingModule;
 
 public:
 

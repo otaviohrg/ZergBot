@@ -27,4 +27,8 @@ namespace Tools
 
     void DrawUnitHealthBars();
     void DrawHealthBar(BWAPI::Unit unit, double ratio, BWAPI::Color color, int yOffset);
+
+    bool IsEnemyZerg(void *data);
+    bool IsEnemyProtoss(void *data);
+    bool IsEnemyTerran(void *data);
 }   

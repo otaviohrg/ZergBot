@@ -2,7 +2,7 @@
 #include <BWAPI.h>
 #include <unordered_set>
 #include <deque>
-#include "Blackboard.h"
+#include "../Blackboard.h"
 
 class ScoutingModule {
 public:

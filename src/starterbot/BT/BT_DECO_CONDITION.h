@@ -8,9 +8,9 @@
 //--------------------
 class BT_DECO_CONDITION : public BT_DECORATOR {
 public:
-    typedef bool(*CONDITION_CBK)(void* data);
+    typedef bool(*CONDITION_CBK)(void* data); // Change to regular function pointer
 protected:
-    CONDITION_CBK  ConditionCBK;
+    CONDITION_CBK ConditionCBK;
 
 public:
     BT_DECO_CONDITION(std::string name, BT_NODE* parent, CONDITION_CBK conditionCBK);

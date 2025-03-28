@@ -17,7 +17,14 @@ bool BT_DECO_CONDITION_NOT_ENOUGH_WORKERS::IsThereNotEnoughWorkers(void *data)
     Data* pData = (Data*)data;
     
     const BWAPI::UnitType workerType = BWAPI::Broodwar->self()->getRace().getWorker();
-    const int workersOwned = Tools::CountUnitsOfType(workerType, BWAPI::Broodwar->self()->getUnits());
+    int workersOwned = Tools::CountUnitsOfType(workerType, BWAPI::Broodwar->self()->getUnits());
 
-    return workersOwned <pData->nWantedWorkersTotal;
+    for (const auto& unit : BWAPI::Broodwar->self()->getUnits()) {
+        if (unit->getType() == BWAPI::UnitTypes::Zerg_Egg) {
+            if (unit->getBuildType() == BWAPI::UnitTypes::Zerg_Drone) {
+                workersOwned++;
+            }
+        }
+    }
+    return workersOwned  <pData->nWantedWorkersTotal;
 }

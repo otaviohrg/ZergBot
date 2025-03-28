@@ -13,6 +13,7 @@ BotManager::BotManager()
 	pEconomyModule = new EconomyModule();
     pCombatModule = new CombatModule();
     pMicroModule = new MicroModule();
+    pScoutingModule = new ScoutingModule();
 }
 
 // Called when the bot starts!
@@ -28,6 +29,7 @@ void BotManager::onStart()
     // Call MapTools OnStart
     m_mapTools.onStart();
 
+    bb->pData->enemyRace = BWAPI::Broodwar->enemy()->getRace();
 }
 
 // Called on each frame of the game
@@ -40,6 +42,14 @@ void BotManager::onFrame()
 	pBaseModule->updateBase(bb);
     pCombatModule->updateCombat(bb);
     pMicroModule->updateMicro();
+    pScoutingModule->update(bb);
+
+    for(auto unit : bb -> pData -> unitsFarmingMinerals) {
+        if(!unit->getType().isWorker()) {
+            std::cout << "Unit is not a worker" << std::endl;
+            bb -> pData -> unitsFarmingMinerals.erase(unit);
+        }
+    }
 
     // Draw unit health bars, which brood war unfortunately does not do
     Tools::DrawUnitHealthBars();

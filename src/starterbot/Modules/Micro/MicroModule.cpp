@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <vector>
 
-#define SQUAD_SIZE 8
+#define SQUAD_SIZE 12
 
 MicroModule::MicroModule() {}
 
@@ -65,7 +65,6 @@ std::list<BWAPI::Position> GetTopThreePossibleEnemyBasePositions() {
 BWAPI::Position GetEnemyBasePosition() {
     // If we already found the enemy base, return it
 
-    std::list<BWAPI::Position> possibleStartLocations = GetTopThreePossibleEnemyBasePositions();
     if (enemyBasePosition.isValid()) {
         return enemyBasePosition;
     }
@@ -76,13 +75,6 @@ BWAPI::Position GetEnemyBasePosition() {
             enemyBasePosition = unit->getPosition();
             return enemyBasePosition;
         }
-    }
-
-    // If the enemy base is not yet found, return a likely starting position
-    if (!possibleStartLocations.empty()) {
-        BWAPI::Position possibleStart = possibleStartLocations.front();
-        possibleStartLocations.pop_front();  // Remove it from the list after use
-        return possibleStart;
     }
 
     // If no known positions, return an invalid position (fallback)
@@ -114,14 +106,14 @@ void MicroModule::updateMicro()
 
     // Form new squads when enough Zerglings are available
     while (availableLings.size() >= SQUAD_SIZE) {
-        std::cout << "Forming new squad" << std::endl;
-        Squad newSquad;
+        //std::cout << "Forming new squad" << std::endl;
+        Squad newSquad (squads.size());
         for (int i = 0; i < SQUAD_SIZE; i++) {
             newSquad.units.push_back(availableLings.front());
             availableLings.pop_front();
         }
         squads.push_back(newSquad);
-        std::cout << "Number of squads: " << squads.size() << std::endl;
+        //std::cout << "Number of squads: " << squads.size() << std::endl;
     }
 
     // Command squads to attack
@@ -131,16 +123,24 @@ void MicroModule::updateMicro()
 }
 
 void MicroModule::executeSquadAttack(Squad& squad) {
-    if (squad.units.empty()) return;
-
+    //std::cout << "Squad "<< squad.squadId << " getting order" << std::endl;
+    if (squad.units.empty()){
+        //std::cout << "Squad "<< squad.squadId << " is empty" << std::endl;
+        return;
+    }
     BWAPI::Position enemyBase = GetEnemyBasePosition();
-    if (!enemyBase.isValid()) return;  // No known enemy base yet
+    //std::cout << "Enemy base position: " << enemyBase << std::endl;
+    if (!enemyBase.isValid()) {
+        //std::cout << "Squad "<< squad.squadId << " dont know base" << std::endl;
+        return;  // No known enemy base yet
+    }
 
     BWAPI::Unit attackTarget = nullptr;
 
     // First, attack enemy offensive units
     for (auto& enemy : BWAPI::Broodwar->enemy()->getUnits()) {
         if (enemy->getType().canAttack()) {
+            //std::cout << "Attacking enemy unit" << std::endl;
             attackTarget = enemy;
             break;
         }
@@ -150,6 +150,7 @@ void MicroModule::executeSquadAttack(Squad& squad) {
     if (!attackTarget) {
         for (auto& enemy : BWAPI::Broodwar->enemy()->getUnits()) {
             if (enemy->getType().isWorker()) {
+                //std::cout << "Attacking enemy worker" << std::endl;
                 attackTarget = enemy;
                 break;
             }
@@ -157,9 +158,10 @@ void MicroModule::executeSquadAttack(Squad& squad) {
     }
 
     // If a target was found, attack it
-    if (attackTarget) {
+    if (attackTarget && attackTarget->exists()) {
         for (auto& unit : squad.units) {
-            if (unit && unit->exists()) {
+            if (unit && unit->exists() && attackTarget->exists()) {
+                //std::cout << "Attacking " << attackTarget->getType() << std::endl;
                 unit->attack(attackTarget);
             }
         }
@@ -167,6 +169,7 @@ void MicroModule::executeSquadAttack(Squad& squad) {
     // Otherwise, move towards the enemy base
     else {
         for (auto& unit : squad.units) {
+            //std::cout << "Moving towards enemy base" << std::endl;
             if (unit && unit->exists()) {
                 unit->move(enemyBase);
             }
