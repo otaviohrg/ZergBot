@@ -35,5 +35,5 @@ public:
 	std::unordered_set<BWAPI::Unit> unitsFarmingMinerals;
 	std::unordered_set<BWAPI::Unit> unitsFarmingGas;
 	std::unordered_set<BWAPI::Unit> unitsScouting;
-
+	BWAPI::TilePosition enemyBase;
 };
