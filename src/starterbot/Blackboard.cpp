@@ -37,6 +37,7 @@ void Blackboard::updateResources()
 
 void Blackboard::setEnemyBase(const BWAPI::TilePosition& position) {
     enemyBase = position;
+    pData->enemyBase = position;
 }
 
 BWAPI::TilePosition Blackboard::getEnemyBase() const {

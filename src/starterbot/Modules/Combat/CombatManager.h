@@ -1,26 +1,22 @@
 #ifndef COMBAT_MANAGER_H
 #define COMBAT_MANAGER_H
 
-#include "BaseCombatStrategy.h"
-#include "MutaliskHarass.h"
-#include "HydraBust.h"
-#include "SpeedlingRush.h"
-#include <BWAPI.h>
-#include <memory>
+#include "../../Blackboard.h"
+#include "../../BT/BT.h"
+#include "ZergVsTerran.h"
+#include "ZergVsProtoss.h"
+#include "ZergVsZerg.h"
 
 class CombatManager {
 public:
     CombatManager();
     ~CombatManager();
 
-    void update();
-    void setEnemyRace(BWAPI::Race race);
+    void updateCombat(Blackboard* bb);
 
 private:
-    std::unique_ptr<BaseCombatStrategy> currentStrategy;
-    BWAPI::Race enemyRace;
-
-    void selectStrategy();
+    BT_DECORATOR* pCombatBT;
+    void switchToStrategy(BWAPI::Race enemyRace);
 };
 
 #endif // COMBAT_MANAGER_H
