@@ -1,0 +1,13 @@
+- Team Members: Otavio Ribas, Nathan Phan, Botheinetou Ebetty, Yingwei Tang, Shu Yang
+
+- Race played: Zerg
+
+-Detailed Strategy developped by bot: We developped a rather aggressive strategy: as soon as the 4th drone is obtained we create a pool, and then quickly produce Zerglings to perform a rush when our opponent is not ready. We aim to establish our advantage in the early game and not let it get into the late game where people show off their resources. More details are in the report(design document)
+
+-Types of units created: 
+
+-Data structures explored: Behaviour tree, Blackboard
+
+-Other features developped: Visual debugging (If displaying on termnal counts)
+
+-Distribution of work:
