@@ -1,39 +1,26 @@
 #include "MutaliskHarass.h"
 
-MutaliskHarass::MutaliskHarass() {}
+void MutaliskHarass::Evaluate() {
+    recruitMutalisks();
+    harassEnemy();
+}
 
-void MutaliskHarass::execute() {
-    BWAPI::Broodwar->printf("Executing Mutalisk Harass...");
-
-    bool hasSpire = false;
-    for (auto &unit : BWAPI::Broodwar->self()->getUnits()) {
-        if (unit->getType() == BWAPI::UnitTypes::Zerg_Spire) {
-            hasSpire = true;
-            break;
+void MutaliskHarass::recruitMutalisks() {
+    mutalisks.clear();
+    for (auto& unit : BWAPI::Broodwar->self()->getUnits()) {
+        if (unit->getType() == BWAPI::UnitTypes::Zerg_Mutalisk) {
+            mutalisks.push_back(unit);
         }
     }
-    if (!hasSpire) {
-        return;
-    }
+}
 
-    for (auto &hatchery : BWAPI::Broodwar->self()->getUnits()) {
-        if (hatchery->getType() == BWAPI::UnitTypes::Zerg_Hatchery && hatchery->isCompleted()) {
-            hatchery->train(BWAPI::UnitTypes::Zerg_Mutalisk);
-        }
-    }
+void MutaliskHarass::harassEnemy() {
+    if (mutalisks.empty()) return;
 
-    if (combatSquad.isEmpty()) {
-        for (auto &unit : BWAPI::Broodwar->self()->getUnits()) {
-            if (unit->getType() == BWAPI::UnitTypes::Zerg_Mutalisk) {
-                combatSquad.addUnit(unit);
-                if (combatSquad.units.size() >= 6) {
-                    BWAPI::Position target = from_Tile_position(blackboard->getEnemyBase());
-                    for (auto &mutalisk : combatSquad.units) {
-                        mutalisk->attack(target);
-                    }
-                    combatSquad.units.clear();
-                }
-            }
+    BWAPI::Position enemyBase = from_Tile_position(blackboard->getEnemyBase());
+    for (auto& muta : mutalisks) {
+        if (muta && muta->exists()) {
+            muta->move(enemyBase);
         }
     }
 }

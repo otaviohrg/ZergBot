@@ -1,17 +1,20 @@
 #ifndef MUTALISK_HARASS_H
 #define MUTALISK_HARASS_H
 
-#include <BWAPI.h>
-#include "../Micro/Squad.h"
-#include "../Blackboard.h"
+#include "BaseCombatStrategy.h"
+#include "../../Blackboard.h"
 #include "utils.h"
-class MutaliskHarass {
+#include <list>
+
+class MutaliskHarass : public BaseCombatStrategy {
 public:
-    MutaliskHarass();
-    void execute();
+    void Evaluate() override;
+
 private:
-    Squad combatSquad;
+    std::list<BWAPI::Unit> mutalisks;
     Blackboard* blackboard;
+    void recruitMutalisks();
+    void harassEnemy();
 };
 
 #endif // MUTALISK_HARASS_H

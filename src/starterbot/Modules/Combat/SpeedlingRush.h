@@ -1,17 +1,20 @@
 #ifndef SPEEDLING_RUSH_H
 #define SPEEDLING_RUSH_H
 
-#include <BWAPI.h>
-#include "../Micro/Squad.h"
-#include"utils.h"
-#include "../Blackboard.h"
-class SpeedlingRush {
+#include "BaseCombatStrategy.h"
+#include "../../Blackboard.h"
+#include "utils.h"
+#include <list>
+
+class SpeedlingRush : public BaseCombatStrategy {
 public:
-    SpeedlingRush();
-    void execute();
+    void Evaluate() override;
+
 private:
+    std::list<BWAPI::Unit> zerglings;
     Blackboard* blackboard;
-    Squad combatSquad;
+    void recruitZerglings();
+    void rushEnemy();
 };
 
 #endif // SPEEDLING_RUSH_H

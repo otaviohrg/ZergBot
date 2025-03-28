@@ -1,17 +1,26 @@
 #ifndef COMBAT_MANAGER_H
 #define COMBAT_MANAGER_H
 
-#include "SpeedlingRush.h"
-#include "HydraHarass.h"
+#include "BaseCombatStrategy.h"
 #include "MutaliskHarass.h"
+#include "HydraBust.h"
+#include "SpeedlingRush.h"
+#include <BWAPI.h>
+#include <memory>
 
 class CombatManager {
 public:
     CombatManager();
+    ~CombatManager();
+
     void update();
+    void setEnemyRace(BWAPI::Race race);
+
 private:
-    void executeStrategy();
+    std::unique_ptr<BaseCombatStrategy> currentStrategy;
     BWAPI::Race enemyRace;
+
+    void selectStrategy();
 };
 
 #endif // COMBAT_MANAGER_H
