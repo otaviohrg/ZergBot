@@ -1,8 +1,6 @@
-#ifndef EMERGENCYEconomyModule_H
-#define EMERGENCYEconomyModule_H
-
-#include "../../Tools.h"   // Include necessary tools
-#include "../../BT/BT.h"   // Assuming you have the BT structure defined
+#pragma once
+#include <BWAPI.h>
+#include "../BT.h"
 
 class EmergencyEconomyModule : public BT_DECORATOR {
 public:
@@ -10,7 +8,8 @@ public:
     ~EmergencyEconomyModule();
 
 private:
-    BT_DECORATOR* pEconomyBT;  // Base behavior tree for the economy module
-};
+    void SetupEmergencyBehaviorTree();
+    BT_NODE::State EvaluateEmergencyEconomy(void* data);
 
-#endif // EMERGENCYEconomyModule_H
+    BT_DECORATOR* pEmergencyEconomyBT;
+};

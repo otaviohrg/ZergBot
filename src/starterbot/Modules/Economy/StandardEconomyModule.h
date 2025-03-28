@@ -1,8 +1,6 @@
-#include "EconomyModule.h"
-#include "../../Tools.h" // Assuming BehaviorTree.h contains necessary node declarations
-#include "../../BT/BT.h"
-#ifndef STANDARDECONOMYMODULE_H
-#define STANDARDECONOMYMODULE_H
+#pragma once
+#include <BWAPI.h>
+#include "../BT.h"
 
 class StandardEconomyModule : public BT_DECORATOR {
 public:
@@ -10,8 +8,8 @@ public:
     ~StandardEconomyModule();
 
 private:
+    void SetupBehaviorTree();
+    BT_NODE::State EvaluateEconomy(void* data);
+
     BT_DECORATOR* pEconomyBT;
 };
-
-#endif // STANDARDECONOMYMODULE_H
-
