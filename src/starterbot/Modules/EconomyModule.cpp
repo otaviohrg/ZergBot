@@ -27,6 +27,7 @@ void EconomyModule::updateEconomy(Blackboard* bb) {
 
     if (pEconomyBT != nullptr && pEconomyBT->Evaluate(bb->pData) != BT_NODE::RUNNING)
     {
+        std::cout << "Economy BT is not running" << std::endl;
         delete (BT_DECORATOR*)pEconomyBT;
         pEconomyBT = nullptr;
     }

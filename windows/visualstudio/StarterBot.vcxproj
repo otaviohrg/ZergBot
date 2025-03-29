@@ -49,9 +49,14 @@
     <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_BUILD_SUPPLY_DEPOT.h" />
     <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_BUILD_SUPPLY_PROVIDER.h" />
     <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_EXPAND_BASE.h" />
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_RESEARCH_METABOLIC_BOOST.h" />
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_SEND_IDLE_WORKER_TO_GAS.h" />
     <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_SEND_IDLE_WORKER_TO_MINERALS.h" />
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_TRAIN_HYDRALISKS.h" />
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_TRAIN_MUTALISKS.h" />
     <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_TRAIN_WORKER.h" />
     <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_TRAIN_ZERGLING.h" />
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_UPGRADE_LAIR.h" />
     <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_NEED_GAS.h" />
     <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_SUPPLY.h" />
     <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_WORKERS.h" />
@@ -59,6 +64,7 @@
     <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_ZERGLINGS.h" />
     <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_SUPPLY_NEEDED.h" />
     <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_SUPPLY_REACHED.h" />
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_WAIT_ENOUGH_ZERGLINGS.h" />
     <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_WAIT_FOR_CONSTRUCTION.h" />
     <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_WAIT_FOR_RESOURCES.h" />
     <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_SET_DESIRED_SUPPLY.h" />
@@ -69,7 +75,9 @@
     <ClInclude Include="..\..\src\starterbot\MapTools.h" />
     <ClInclude Include="..\..\src\starterbot\Modules\BaseModule.h" />
     <ClInclude Include="..\..\src\starterbot\Modules\CombatModule.h" />
-    <ClInclude Include="..\..\src\starterbot\Modules\EconomyModule.h" />
+    <ClInclude Include="..\..\src\starterbot\Modules\Economy\EconomyModule.h" />
+    <ClInclude Include="..\..\src\starterbot\Modules\Economy\EmergencyEconomyModule.h" />
+    <ClInclude Include="..\..\src\starterbot\Modules\Economy\StandardEconomyModule.h" />
     <ClInclude Include="..\..\src\starterbot\Modules\Micro\MicroModule.h" />
     <ClInclude Include="..\..\src\starterbot\Modules\Micro\Squad.h" />
     <ClInclude Include="..\..\src\starterbot\Modules\ScoutingModule.h" />
@@ -107,9 +115,14 @@
     <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_BUILD_SUPPLY_DEPOT.cpp" />
     <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_BUILD_SUPPLY_PROVIDER.cpp" />
     <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_EXPAND_BASE.cpp" />
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_RESEARCH_METABOLIC_BOOST.cpp" />
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_SEND_IDLE_WORKER_TO_GAS.cpp" />
     <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_SEND_IDLE_WORKER_TO_MINERALS.cpp" />
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_TRAIN_HYDRALISKS.cpp" />
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_TRAIN_MUTALISKS.cpp" />
     <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_TRAIN_WORKER.cpp" />
     <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_TRAIN_ZERGLING.cpp" />
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_UPGRADE_LAIR.cpp" />
     <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_NEED_GAS .cpp" />
     <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_SUPPLY.cpp" />
     <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_WORKERS.cpp" />
@@ -117,6 +130,7 @@
     <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_ZERGLINGS.cpp" />
     <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_SUPPLY_NEEDED.cpp" />
     <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_SUPPLY_REACHED.cpp" />
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_WAIT_ENOUGH_ZERGLINGS.cpp" />
     <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_WAIT_FOR_CONSTRUCTION.cpp" />
     <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_WAIT_FOR_RESOURCES.cpp" />
     <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_SET_DESIRED_SUPPLY.cpp" />
@@ -126,7 +140,9 @@
     <ClCompile Include="..\..\src\starterbot\MapTools.cpp" />
     <ClCompile Include="..\..\src\starterbot\Modules\BaseModule.cpp" />
     <ClCompile Include="..\..\src\starterbot\Modules\CombatModule.cpp" />
-    <ClCompile Include="..\..\src\starterbot\Modules\EconomyModule.cpp" />
+    <ClCompile Include="..\..\src\starterbot\Modules\Economy\EconomyModule.cpp" />
+    <ClCompile Include="..\..\src\starterbot\Modules\Economy\EmergencyEconomyModule.cpp" />
+    <ClCompile Include="..\..\src\starterbot\Modules\Economy\StandardEconomyModule.cpp" />
     <ClCompile Include="..\..\src\starterbot\Modules\Micro\MicroModule.cpp" />
     <ClCompile Include="..\..\src\starterbot\Modules\ScoutingModule.cpp" />
     <ClCompile Include="..\..\src\starterbot\ReplayParser.cpp" />

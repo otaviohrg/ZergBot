@@ -15,11 +15,8 @@ std::string BT_DECO_CONDITION_NOT_ENOUGH_ZERGLINGS::GetDescription()
 bool BT_DECO_CONDITION_NOT_ENOUGH_ZERGLINGS::IsThereNotEnoughUnits(void *data)
 {
     Data* pData = (Data*)data;
-
-    std::cout << "Checking if there are not enough Zerglings" << std::endl;
-    std::cout << "Desired Zerglings: " << pData->desiredUnits["Zerg_Zergling"] << std::endl;
     
     const BWAPI::UnitType unitType = BWAPI::UnitType::getType("Zerg_Zergling");
     int unitsOwned = Tools::CountUnitsOfType(unitType, BWAPI::Broodwar->self()->getUnits());
-    return unitsOwned >= pData->desiredUnits["Zerg_Zergling"];
+    return unitsOwned < pData->desiredUnits["Zerg_Zergling"];
 }

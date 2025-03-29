@@ -3,7 +3,7 @@
 #include "MapTools.h"
 #include "BT/Data.h"
 #include <format>
-
+#include <iostream>
 #include "BT/BT.h"
 
 BotManager::BotManager()
@@ -37,12 +37,18 @@ void BotManager::onFrame()
 {
     // Update our MapTools information
     m_mapTools.onFrame();
-
+    // Update our blackboard information
+    std::cout << "Updating blackboard" << std::endl;
 	pEconomyModule->updateEconomy(bb);
+    std::cout << "Updating base" << std::endl;
 	pBaseModule->updateBase(bb);
+    std::cout << "Updating combat" << std::endl;
     pCombatModule->updateCombat(bb);
+    std::cout << "Updating micro" << std::endl;
     pMicroModule->updateMicro();
+    std::cout << "Updating scouting" << std::endl;
     pScoutingModule->update(bb);
+    std::cout << "Updating scouting done" << std::endl;
 
     for(auto unit : bb -> pData -> unitsFarmingMinerals) {
         if(!unit->getType().isWorker()) {

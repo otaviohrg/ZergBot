@@ -23,7 +23,7 @@ BT_NODE::State BT_ACTION_SEND_IDLE_WORKER_TO_GAS::SendIdleWorkerToGas(void* data
 
             // Find a refinery to send the worker to
             for (auto& refinery : BWAPI::Broodwar->self()->getUnits()) {
-                if (refinery->getType().isRefinery() && refinery->exists()) {
+                if (refinery->exists() && refinery->getType().isRefinery()) {
                     
                     // Send the worker to gather gas
                     worker->rightClick(refinery);

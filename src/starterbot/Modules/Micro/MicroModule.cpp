@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <vector>
 
-#define SQUAD_SIZE 12
+#define SQUAD_SIZE 6
 
 MicroModule::MicroModule() {}
 

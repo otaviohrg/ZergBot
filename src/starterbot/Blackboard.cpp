@@ -30,9 +30,13 @@ void Blackboard::unreserveResources(int minerals, int gas)
 
 void Blackboard::updateResources()
 {
+    std::cout << "Updating resources" << std::endl;
     pData->currMinerals = BWAPI::Broodwar->self()->minerals();
+    std::cout << "Current minerals: " << pData->currMinerals << std::endl;
     pData->currGas = BWAPI::Broodwar->self()->gas();
+    std::cout << "Current gas: " << pData->currGas << std::endl;
     pData->currSupply = BWAPI::Broodwar->self()->supplyUsed();
+    std::cout << "Current supply: " << pData->currSupply << std::endl;
 }
 
 

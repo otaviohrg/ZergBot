@@ -1,6 +1,6 @@
 #pragma once
 #include <BWAPI.h>
-#include "../BT.h"
+#include "../../BT/BT.h"
 
 class EmergencyEconomyModule : public BT_DECORATOR {
 public:

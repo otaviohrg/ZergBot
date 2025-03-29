@@ -93,9 +93,7 @@
       <Filter>BT</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\starterbot\Blackboard.cpp" />
-    <ClCompile Include="..\..\src\starterbot\Modules\BaseModule.cpp" />
     <ClCompile Include="..\..\src\starterbot\Modules\CombatModule.cpp" />
-    <ClCompile Include="..\..\src\starterbot\Modules\EconomyModule.cpp" />
     <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_BUILD_BUILDING.cpp">
       <Filter>BT\BT_STARCRAFT</Filter>
     </ClCompile>
@@ -139,6 +137,28 @@
       <Filter>BT\BT_STARCRAFT</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_SET_DESIRED_UNITS.cpp">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\starterbot\Modules\Economy\EconomyModule.cpp" />
+    <ClCompile Include="..\..\src\starterbot\Modules\Economy\EmergencyEconomyModule.cpp" />
+    <ClCompile Include="..\..\src\starterbot\Modules\Economy\StandardEconomyModule.cpp" />
+    <ClCompile Include="..\..\src\starterbot\Modules\BaseModule.cpp" />
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_SEND_IDLE_WORKER_TO_GAS.cpp">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_UPGRADE_LAIR.cpp">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_RESEARCH_METABOLIC_BOOST.cpp">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_TRAIN_HYDRALISKS.cpp">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_TRAIN_MUTALISKS.cpp">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_WAIT_ENOUGH_ZERGLINGS.cpp">
       <Filter>BT\BT_STARCRAFT</Filter>
     </ClCompile>
   </ItemGroup>
@@ -241,9 +261,7 @@
       <Filter>BT</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\starterbot\Blackboard.h" />
-    <ClInclude Include="..\..\src\starterbot\Modules\BaseModule.h" />
     <ClInclude Include="..\..\src\starterbot\Modules\CombatModule.h" />
-    <ClInclude Include="..\..\src\starterbot\Modules\EconomyModule.h" />
     <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_BUILD_BUILDING.h">
       <Filter>BT\BT_STARCRAFT</Filter>
     </ClInclude>
@@ -288,6 +306,28 @@
       <Filter>BT\BT_STARCRAFT</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_SET_DESIRED_UNITS.h">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\Modules\Economy\EconomyModule.h" />
+    <ClInclude Include="..\..\src\starterbot\Modules\Economy\EmergencyEconomyModule.h" />
+    <ClInclude Include="..\..\src\starterbot\Modules\Economy\StandardEconomyModule.h" />
+    <ClInclude Include="..\..\src\starterbot\Modules\BaseModule.h" />
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_SEND_IDLE_WORKER_TO_GAS.h">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_UPGRADE_LAIR.h">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_RESEARCH_METABOLIC_BOOST.h">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_TRAIN_HYDRALISKS.h">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_ACTION_TRAIN_MUTALISKS.h">
+      <Filter>BT\BT_STARCRAFT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\BT\BT_STARCRAFT\BT_DECO_CONDITION_WAIT_ENOUGH_ZERGLINGS.h">
       <Filter>BT\BT_STARCRAFT</Filter>
     </ClInclude>
   </ItemGroup>

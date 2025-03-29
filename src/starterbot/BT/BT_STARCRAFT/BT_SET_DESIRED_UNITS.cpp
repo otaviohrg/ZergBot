@@ -23,6 +23,5 @@ BT_NODE::State BT_SET_DESIRED_UNITS::SetDesiredUnits(void* data)
     // Set the desired number of workers
     pData->desiredUnits[unitType] = std::max(pData->desiredUnits[unitType], wantedUnit);
 
-    std::cout << "Set wanted units of type " << unitType << " to " << pData->desiredUnits[unitType] << std::endl;
     return BT_NODE::SUCCESS;
 }

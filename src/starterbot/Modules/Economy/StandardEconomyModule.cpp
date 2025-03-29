@@ -23,16 +23,20 @@ void StandardEconomyModule::SetupBehaviorTree() {
         new BT_ACTION_TRAIN_WORKER("TrainWorker", pNotEnoughWorkersCondition);
 
     // === 2. Gas and Mineral Allocation ===
-    BT_DECO_REPEATER* pResourceRepeater = new BT_DECO_REPEATER(
+    BT_DECO_REPEATER* pGasRepeater = new BT_DECO_REPEATER(
         "RepeatResourceAllocation", pMainSeq, 0, true, false, false);  // Reset on failure
     
     // Allocate workers to gas first
     BT_ACTION_SEND_IDLE_WORKER_TO_GAS* pSendWorkerToGas = 
-        new BT_ACTION_SEND_IDLE_WORKER_TO_GAS("SendWorkerToGas", pResourceRepeater);
+        new BT_ACTION_SEND_IDLE_WORKER_TO_GAS("SendWorkerToGas", pGasRepeater);
     
+
+    BT_DECO_REPEATER* pMineralRepeater = new BT_DECO_REPEATER(
+        "RepeatResourceAllocation", pMainSeq, 0, true, false, false);  // Reset on failure
+        
     // Remaining workers should go to minerals
     BT_ACTION_SEND_IDLE_WORKER_TO_MINERALS* pSendWorkerToMinerals = 
-        new BT_ACTION_SEND_IDLE_WORKER_TO_MINERALS("SendWorkerToMinerals", pResourceRepeater);
+        new BT_ACTION_SEND_IDLE_WORKER_TO_MINERALS("SendWorkerToMinerals", pMineralRepeater);
 }
 
 BT_NODE::State StandardEconomyModule::EvaluateEconomy(void* data) {
