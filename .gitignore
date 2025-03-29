@@ -2,4 +2,5 @@ windows/starcraft/
 windows/visualstudio/Win32/
 windows/visualstudio/x64/
 windows/visualstudio/.vs/
+windows/bin
 .vs
